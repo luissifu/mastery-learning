@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Mastery  Learning</title>
+  <meta name="description" content="Plataforma de Mastery Learning para ITESM">
+  <meta name="author" content="sifu">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <!-- Css -->
+  <link href="static/css/bootstrap.cyborg.min.css" rel="stylesheet">
+  <link href="static/css/font-awesome.min.css" rel="stylesheet">
+  <link href="static/css/app.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">MASTERY LEARNING</a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="home.html"><i class="fa fa-copy"></i> Todos los Cursos</a></li>
+        <li><a href="mycourses.html"><i class="fa fa-file-o"></i> Mis Cursos</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cog"></i></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="index.html"><i class="fa fa-sign-out"></i> Salir del Sistema</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+<!-- /NAV -->
+
+<!-- POPUP -->
+<div id="modalComp" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h2 class="modal-title">Compentecias</h2>
+      </div>
+      <div class="modal-body">
+        <ol>
+          <li><input type="checkbox" name="comp1" value="comp1">  Competencia
+            <ol>
+              <li><input type="checkbox" name="comp1.1" value="comp1.1">  Subcompetencia</li>
+              <li><input type="checkbox" name="comp1.2" value="comp1.2">  Subcompetencia</li>
+              <li><input type="checkbox" name="comp1.3" value="comp1.3">  Subcompetencia</li>
+            </ol>
+          </li>
+          <li><input type="checkbox" name="comp2" value="comp2">  Competencia
+            <ol>
+              <li><input type="checkbox" name="comp2.1" value="comp2.1">  Subcompetencia</li>
+              <li><input type="checkbox" name="comp2.2" value="comp2.2">  Subcompetencia</li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /POPUP -->
+
+<!-- CONTENT -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h2>Paso 6 - Evaluaciones</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Evaluacion #1
+          <button type="button" class="close">×</button>
+        </div>
+        <div class="panel-body">
+          <p><b>Tipo:</b> Examen</p>
+          <p>
+            <a href="http://investors.shopify.com/files/doc_downloads/test.pdf" target="_blank" class="btn btn-default">
+              <i class="fa fa-eye"></i> Ver Documento
+            </a>
+          </p>
+          <hr>
+          <ol>
+            <li>Competencias</li>
+            <li>Competencias</li>
+            <li>Competencias</li>
+          </ol>
+          <div>
+            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalComp"><i class="fa fa-tasks"></i> Cambiar Competencias</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Nueva Evaluacion
+          <button type="button" class="close">×</button>
+        </div>
+        <div class="panel-body">
+          <form action="create_course_niveles.html" method="post">
+            <div class="row">
+              <div class="form-group col-md-10">
+                <label class="control-label" for="eval_name">Nombre</label>
+                <input type="text" class="form-control" id="eval_name" placeholder="Nombre de la Evaluacion">
+              </div>
+              <div class="form-group col-md-2">
+                <label class="control-label" for="eval_type">Tipo</label>
+                <select class="form-control" id="eval_type">
+                  <option>Examen</option>
+                  <option>Ensayo</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-10">
+                <input type="text" class="form-control" placeholder="Seleciona un archivo">
+              </div>
+              <div class="form-group col-md-2">
+                <a href="#" class="btn btn-primary"><i class="fa fa-upload"></i> Seleccionar Archivo</a>
+              </div>
+            </div>
+            <div>
+              <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalComp"><i class="fa fa-tasks"></i> Seleccionar Competencias</a>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4">
+      <a href="#" class="btn btn-success btn-block"><i class="fa fa-plus"></i> Agregar Evaluacion</a>
+      <a href="course.html" class="btn btn-primary btn-block">Terminar</a>
+    </div>
+  </div>
+
+</div>
+<!-- /CONTENT -->
+
+
+<!-- Scripts -->
+<script type="text/javascript" src="static/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+
+</body>
+</html>
