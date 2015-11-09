@@ -6,6 +6,10 @@ var gulp = require('gulp'),
     tsc = require('gulp-typescript'),
     tslint = require('gulp-tslint'),
     sourcemaps = require('gulp-sourcemaps'),
+    concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    notify = require('gulp-notify'),
+    ngAnnotate = require('gulp-ng-annotate'),
     del = require('del'),
     Config = require('./gulpfile.config'),
     tsProject = tsc.createProject('tsconfig.json'),
@@ -49,45 +53,61 @@ gulp.task('compile-ts', function () {
 
     tsResult.dts.pipe(gulp.dest(config.tsOutputPath));
 
-    return tsResult.js
-                        .pipe(sourcemaps.write('.'))
-                        .pipe(gulp.dest(config.tsOutputPath));
+    return tsResult.js.pipe(concat('all.js'))
+                      // .pipe(uglify())
+                      .pipe(sourcemaps.write())
+                      .pipe(gulp.dest(config.tsOutputPath));
 });
 
 /**
  * Remove all generated JavaScript files from TypeScript compilation.
  */
 gulp.task('clean-ts', function (cb) {
-  var typeScriptGenFiles = [
-                              config.tsOutputPath +'/**/*.js',    // path to all JS files auto gen'd by editor
-                              config.tsOutputPath +'/**/*.js.map', // path to all sourcemap files auto gen'd by editor
-                              '!' + config.tsOutputPath + '/lib'
-                           ];
+    var typeScriptGenFiles = [
+        config.tsOutputPath +'/**/*.js',    // path to all JS files auto gen'd by editor
+        config.tsOutputPath +'/**/*.js.map', // path to all sourcemap files auto gen'd by editor
+        '!' + config.tsOutputPath + '/lib'
+    ];
 
-  // delete the files
-  del(typeScriptGenFiles, cb);
+    // delete the files
+    del(typeScriptGenFiles, cb);
 });
+
+gulp.task('concat-ts', function() {
+    var controllers = [config.sourceApp + 'controllers/*.ts'];
+
+    gulp.src(controllers)
+                         .pipe(concat('controllers.ts'))
+                         .pipe(gulp.dest(config.sourceApp));
+
+
+    var directives = [config.sourceApp + 'directives/*.ts'];
+
+    gulp.src(directives)
+                         .pipe(concat('directives.ts'))
+                         .pipe(gulp.dest(config.sourceApp));
+})
 
 gulp.task('watch', function() {
     gulp.watch([config.allTypeScript], ['ts-lint', 'compile-ts']);
 });
 
 gulp.task('serve', ['compile-ts', 'watch'], function() {
-  process.stdout.write('Starting browserSync and superstatic...\n');
-  browserSync({
-    port: 3000,
-    files: ['index.html', '**/*.js'],
-    injectChanges: true,
-    logFileChanges: false,
-    logLevel: 'silent',
-    logPrefix: 'mastery-learning',
-    notify: true,
-    reloadDelay: 0,
-    server: {
-      baseDir: './src',
-      middleware: superstatic({ debug: false})
-    }
-  });
+    process.stdout.write('Starting browserSync and superstatic...\n');
+    browserSync({
+        port: 3000,
+        files: ['index.html', '**/*.js'],
+        injectChanges: true,
+        logFileChanges: false,
+        logLevel: 'silent',
+        logPrefix: 'mastery-learning',
+        notify: true,
+        reloadDelay: 0,
+        server: {
+            baseDir: './src',
+            middleware: superstatic({ debug: false})
+        }
+    });
 });
 
 gulp.task('default', ['ts-lint', 'compile-ts']);
