@@ -14,21 +14,21 @@ appModule.config(($stateProvider, $urlRouterProvider) => {
       url: '/courses',
       template: '<home></home>'
     })
-    .state('courses.student', {
-      url: '/student',
+    .state('courses_student', {
+      url: '/courses/student',
       template: '<stud-courses></stud-courses>'
     })
-    .state('courses.professor', {
-      url: '/professor',
+    .state('courses_professor', {
+      url: '/courses/professor',
       template: '<prof-courses></prof-courses>'
     })
-    .state('courses.new', {
-      url: '/new',
+    .state('courses_new', {
+      url: '/courses/new',
       template: '<create-course></create-course>'
     })
-    .state('courses.detail', {
-      url: '/:id',
+    .state('courses_detail', {
+      url: '/courses/:id',
       template: '<course></<course>'
-    })
+    });
 
 });
