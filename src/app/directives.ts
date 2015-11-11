@@ -8,6 +8,14 @@ appModule.directive(
   () => new ML.Directives.Home()
 );
 appModule.directive(
+  'studCourses',
+  () => new ML.Directives.StudCourses()
+);
+appModule.directive(
+  'profCourses',
+  () => new ML.Directives.ProfCourses()
+);
+appModule.directive(
   'sideBar',
   () => new ML.Directives.SideBar()
 );

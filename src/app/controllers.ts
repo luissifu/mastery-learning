@@ -3,8 +3,16 @@ appModule.controller(
   ['$scope', ($scope) => new ML.Controllers.NavBarController($scope)]
 );
 appModule.controller(
-  'HomeController',
+  'homeController',
   ['$scope', ($scope) => new ML.Controllers.HomeController($scope)]
+);
+appModule.controller(
+  'studCoursesController',
+  ['$scope', ($scope) => new ML.Controllers.StudCoursesController($scope)]
+);
+appModule.controller(
+  'profCoursesController',
+  ['$scope', ($scope) => new ML.Controllers.ProfCoursesController($scope)]
 );
 appModule.controller(
   'sideBarController',
