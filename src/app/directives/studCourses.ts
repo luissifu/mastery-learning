@@ -8,7 +8,7 @@ module ML.Directives {
             return <ng.IDirective>{
                 controller: ML.Controllers.StudCoursesController,
                 restrict: 'E',
-                templateUrl: 'views/est_courses.html',
+                templateUrl: 'views/stud_courses.html',
                 replace: true,
                 scope: { //Ahora el scope tendra todas las propiedades que le enviamos :)
                     // Es importante notar que si no ponemos scope tendra un shared scope con su padre (en vez de uno propio)

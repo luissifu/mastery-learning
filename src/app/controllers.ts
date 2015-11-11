@@ -1,7 +1,17 @@
+// parciales
 appModule.controller(
   'navBarController',
   ['$scope', ($scope) => new ML.Controllers.NavBarController($scope)]
 );
+appModule.controller(
+  'sideBarController',
+  ['$scope', ($scope) => new ML.Controllers.SideBarController($scope)]
+);
+appModule.controller(
+  'popupController',
+  ['$scope', ($scope) => new ML.Controllers.PopupController($scope)]
+);
+// nodos
 appModule.controller(
   'homeController',
   ['$scope', ($scope) => new ML.Controllers.HomeController($scope)]
@@ -15,21 +25,10 @@ appModule.controller(
   ['$scope', ($scope) => new ML.Controllers.ProfCoursesController($scope)]
 );
 appModule.controller(
-  'sideBarController',
-  ['$scope', ($scope) => new ML.Controllers.SideBarController($scope)]
-);
-appModule.controller(
-  'competenciasController',
-  ['$scope', ($scope) => new ML.Controllers.CompetenciasController($scope)]
-);
-appModule.controller(
-  'courseController',
-  ['$scope', ($scope) => new ML.Controllers.CourseController($scope)]
-);
-appModule.controller(
   'courseDetailController',
   ['$scope', ($scope) => new ML.Controllers.CourseDetailController($scope)]
 );
+// crear curso
 appModule.controller(
   'createCourseController',
   ['$scope', ($scope) => new ML.Controllers.CreateCourseController($scope)]
@@ -53,4 +52,29 @@ appModule.controller(
 appModule.controller(
   'createCourseReferenciasController',
   ['$scope', ($scope) => new ML.Controllers.CreateCourseReferenciasController($scope)]
+);
+// ver curso
+appModule.controller(
+  'courseController',
+  ['$scope', ($scope) => new ML.Controllers.CourseController($scope)]
+);
+appModule.controller(
+  'competenciasController',
+  ['$scope', ($scope) => new ML.Controllers.CompetenciasController($scope)]
+);
+appModule.controller(
+  'evaluacionesController',
+  ['$scope', ($scope) => new ML.Controllers.EvaluacionesController($scope)]
+);
+appModule.controller(
+  'interaccionesController',
+  ['$scope', ($scope) => new ML.Controllers.InteraccionesController($scope)]
+);
+appModule.controller(
+  'nivelesController',
+  ['$scope', ($scope) => new ML.Controllers.NivelesController($scope)]
+);
+appModule.controller(
+  'referenciasController',
+  ['$scope', ($scope) => new ML.Controllers.ReferenciasController($scope)]
 );
