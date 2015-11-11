@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html ng-app="masteryLearning">
+<html>
 <head>
   <meta charset="utf-8">
   <title>Mastery  Learning</title>
   <meta name="description" content="Plataforma de Mastery Learning para ITESM">
   <meta name="author" content="sifu">
   <meta name="viewport" content="width=device-width, user-scalable=no">
+  <base href="/" />
 
   <!-- Css -->
   <link href="externals/css/bootstrap.cyborg.min.css" rel="stylesheet">
@@ -17,13 +18,15 @@
   <![endif]-->
 </head>
 
-<body>
+<body ng-app="masteryLearning">
+
   <nav-bar></nav-bar>
 
-  <course></course>
+  <div ui-view></div>
 
   <!-- Scripts -->
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+  <script src="libs/angular.min.js"></script>
+  <script src="libs/angular-ui-router.min.js"></script>
   <script src="dist/all.js"></script>
 </body>
 </html>
