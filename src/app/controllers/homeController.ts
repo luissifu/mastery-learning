@@ -15,5 +15,5 @@
             this.scope = $scope;
         }
     }
-    
+
 }

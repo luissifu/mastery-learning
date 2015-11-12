@@ -58,24 +58,24 @@ appModule.config(($stateProvider, $urlRouterProvider) => {
       url: '/courses/view/:id',
       template: '<course></course>'
     })
-    .state('courses_view_comp', {
-      url: '/courses/view/:id/competencias',
+    .state('courses_view.comp', {
+      url: '/competencias',
       template: '<competencias></competencias>'
     })
-    .state('courses_view_eval', {
-      url: '/courses/view/:id/evaluaciones',
+    .state('courses_view.eval', {
+      url: '/evaluaciones',
       template: '<evaluaciones></evaluaciones>'
     })
-    .state('courses_view_inte', {
-      url: '/courses/view/:id/interacciones',
+    .state('courses_view.inte', {
+      url: '/interacciones',
       template: '<interacciones></interacciones>'
     })
-    .state('courses_view_nivl', {
-      url: '/courses/view/:id/niveles',
+    .state('courses_view.nivl', {
+      url: '/niveles',
       template: '<niveles></niveles>'
     })
-    .state('courses_view_refs', {
-      url: '/courses/view/:id/referencias',
+    .state('courses_view.refs', {
+      url: '/referencias',
       template: '<referencias></referencias>'
     });
 
