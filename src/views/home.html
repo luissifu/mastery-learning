@@ -1,11 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-offset-3 col-lg-6">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <p>NODOS POR AHI</p>
+
+    <div ng-repeat="nodo in nodos">
+
+      <div class="col-lg-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <p><a ui-sref="courses_detail({id: '{{nodo.id}}'})">{{nodo.name}}</a></p>
+          </div>
         </div>
       </div>
+
     </div>
+
   </div>
 </div>
