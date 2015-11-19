@@ -3,3 +3,4 @@ node_modules
 .tmp
 develop.js
 dist
+.DS_Store
