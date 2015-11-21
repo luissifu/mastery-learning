@@ -13,6 +13,13 @@
 
 	$op = isset($_GET['op']) ? $_GET['op'] : die ("No operation specified");
 	$id = isset($_GET['id']) ? $_GET['id'] : '';
+	$name = isset($_GET['name']) ? $_GET['name'] : null;
+	$description = isset($_GET['description']) ? $_GET['description'] : null;
+	$parent = isset($_GET['parent']) ? $_GET['parent'] : null;
+	$cid = isset($_GET['cid']) ? $_GET['cid'] : null;
+	$title = isset($_GET['title']) ? $_GET['title'] : null;
+	$type = isset($_GET['type']) ? $_GET['type'] : null;
+	$link = isset($_GET['link']) ? $_GET['link'] : null;
 
 	switch ($op) {
 		case "getCourses":	
@@ -51,6 +58,24 @@
 		case "getResourcesFromCompetence":
 			getResourcesFromCompetence($id);
 			break;
+		case "createCourse":
+			createCourse($name, $description);
+			break;
+		case "createCompetence":
+			createCompetence($name, $parent, $cid);
+			break;
+		case "createDomain":
+			createDomain($name, $description, $cid);
+			break;
+		case "createEvaluation":
+			createEvaluation($title, $type, $description, $link, $cid);
+			break;
+		case "createResource":
+			createResource($title, $type, $description, $link, $cid);
+			break;
+		case "createInteraction":
+			createInteraction($type, $description, $cid);
+			break;
 	}
 
 
@@ -61,6 +86,12 @@
 		while($row = $result->fetch_assoc()) {
 			$encode[] = $row;
 		}
+		echo json_encode($encode);	
+	}
+
+	function getLast ($stmt) {
+		$encode = array();
+		$encode[] = array("id" => $stmt->insert_id);
 		echo json_encode($encode);	
 	}
 
@@ -215,6 +246,72 @@
 			$stmt->execute();
 			$result = $stmt->get_result();
 			getJSON($result);
+			$stmt->close();
+		}
+	}
+
+	function createCourse ($name, $description) {
+
+		$query = "INSERT INTO Course (name, description) VALUES (?, ?)";
+		if ($stmt = $GLOBALS['conn']->prepare($query)) {
+			$stmt->bind_param("ss", $name, $description);
+			$stmt->execute();
+			getLast($stmt);
+			$stmt->close();
+		}
+	}
+	
+	function createCompetence ($name, $parent, $cid) {
+
+		$query = "INSERT INTO Competence (name, parent, cid) VALUES (?, ?, ?)";
+		if ($stmt = $GLOBALS['conn']->prepare($query)) {
+			$stmt->bind_param("sii", $name, $parent, $cid);
+			$stmt->execute();
+			getLast($stmt);
+			$stmt->close();
+		}
+	}
+
+	function createDomain ($name, $description, $cid) {
+
+		$query = "INSERT INTO Domain (name, description, cid) VALUES (?, ?, ?)";
+		if ($stmt = $GLOBALS['conn']->prepare($query)) {
+			$stmt->bind_param("ssi", $name, $description, $cid);
+			$stmt->execute();
+			getLast($stmt);
+			$stmt->close();
+		}
+	}
+
+	function createEvaluation ($title, $type, $description, $link, $cid) {
+
+		$query = "INSERT INTO Evaluation (title, type, descrption, link, cid) VALUES (?, ?, ?, ?, ?)";
+		if ($stmt = $GLOBALS['conn']->prepare($query)) {
+			$stmt->bind_param("ssssi", $title, $type, $description, $link, $cid);
+			$stmt->execute();
+			getLast($stmt);
+			$stmt->close();
+		}
+	}
+	
+	function createResource ($title, $type, $description, $link, $cid) {
+
+		$query = "INSERT INTO Resource (title, type, descrption, link, cid) VALUES (?, ?, ?, ?, ?)";
+		if ($stmt = $GLOBALS['conn']->prepare($query)) {
+			$stmt->bind_param("ssssi", $title, $type, $description, $link, $cid);
+			$stmt->execute();
+			getLast($stmt);
+			$stmt->close();
+		}
+	}
+
+	function createInteraction($type, $description, $cid) {
+
+		$query = "INSERT INTO Interaction (type, description, cid) VALUES (?, ?, ?)";
+		if ($stmt = $GLOBALS['conn']->prepare($query)) {
+			$stmt->bind_param("ssi", $type, $description, $cid);
+			$stmt->execute();
+			getLast($stmt);
 			$stmt->close();
 		}
 	}
