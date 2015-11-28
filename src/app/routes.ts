@@ -1,82 +1,85 @@
-appModule.config(($stateProvider, $urlRouterProvider) => {
-  $urlRouterProvider.otherwise('/');
+appModule.config(($stateProvider: ng.ui.IStateProvider, $urlRouterProvider: ng.ui.IUrlRouterProvider) => {
+    $urlRouterProvider.otherwise('/');
 
-  $stateProvider
+    $stateProvider
     // default
-    .state('index', {
-      url: '/',
-      template: '<home></home>'
-    })
+        .state('index', {
+            url: '/',
+            template: '<home></home>'
+        })
     // nodos
-    .state('home', {
-      url: '/home',
-      template: '<home></home>'
-    })
-    .state('courses', {
-      url: '/courses',
-      template: '<home></home>'
-    })
-    .state('courses_student', {
-      url: '/courses/student',
-      template: '<stud-courses></stud-courses>'
-    })
-    .state('courses_professor', {
-      url: '/courses/professor',
-      template: '<prof-courses></prof-courses>'
-    })
-    .state('courses_detail', {
-      url: '/courses/detail/:id',
-      template: '<course-detail></<course-detail>'
-    })
+        .state('home', {
+            url: '/home',
+            template: '<home></home>'
+        })
+        .state('courses', {
+            url: '/courses',
+            template: '<home></home>'
+        })
+        .state('coursesStudent', {
+            url: '/courses/student',
+            template: '<stud-courses></stud-courses>'
+        })
+        .state('coursesProfessor', {
+            url: '/courses/professor',
+            template: '<prof-courses></prof-courses>'
+        })
+        .state('coursesDetail', {
+            url: '/courses/detail/:course',
+            templateProvider: ($stateParams) => {
+                return '<course-detail course=\'' + $stateParams.course + '\'></course-detail>';
+            },
+        })
     // crear curso
-    .state('courses_new', {
-      url: '/courses/new',
-      template: '<create-course></create-course>'
-    })
-    .state('courses_new_comp', {
-      url: '/courses/new/competencias',
-      template: '<create-course-competencias></create-course-competencias>'
-    })
-    .state('courses_new_eval', {
-      url: '/courses/new/evaluaciones',
-      template: '<create-course-evaluaciones></create-course-evaluaciones>'
-    })
-    .state('courses_new_inte', {
-      url: '/courses/new/interacciones',
-      template: '<create-course-interacciones></create-course-interacciones>'
-    })
-    .state('courses_new_nivl', {
-      url: '/courses/new/niveles',
-      template: '<create-course-niveles></create-course-niveles>'
-    })
-    .state('courses_new_refs', {
-      url: '/courses/new/referencias',
-      template: '<create-course-referencias></create-course-referencias>'
-    })
+        .state('coursesNew', {
+            url: '/courses/new',
+            template: '<create-course></create-course>'
+        })
+        .state('coursesNewComp', {
+            url: '/courses/new/competencias',
+            template: '<create-course-competencias></create-course-competencias>'
+        })
+        .state('coursesNewEval', {
+            url: '/courses/new/evaluaciones',
+            template: '<create-course-evaluaciones></create-course-evaluaciones>'
+        })
+        .state('coursesNewInte', {
+            url: '/courses/new/interacciones',
+            template: '<create-course-interacciones></create-course-interacciones>'
+        })
+        .state('coursesNewNivl', {
+            url: '/courses/new/niveles',
+            template: '<create-course-niveles></create-course-niveles>'
+        })
+        .state('coursesNewRefs', {
+            url: '/courses/new/referencias',
+            template: '<create-course-referencias></create-course-referencias>'
+        })
     // ver curso
-    .state('courses_view', {
-      url: '/courses/view/:id',
-      template: '<course></course>'
-    })
-    .state('courses_view.comp', {
-      url: '/competencias',
-      template: '<competencias></competencias>'
-    })
-    .state('courses_view.eval', {
-      url: '/evaluaciones',
-      template: '<evaluaciones></evaluaciones>'
-    })
-    .state('courses_view.inte', {
-      url: '/interacciones',
-      template: '<interacciones></interacciones>'
-    })
-    .state('courses_view.nivl', {
-      url: '/niveles',
-      template: '<niveles></niveles>'
-    })
-    .state('courses_view.refs', {
-      url: '/referencias',
-      template: '<referencias></referencias>'
-    });
-
+        .state('coursesView', {
+            url: '/courses/view/:course',
+            templateProvider: ($stateParams) => {
+                return '<course course=\'' + $stateParams.course + '\'></course>';
+            },
+        })
+        .state('coursesView.comp', {
+            url: '/competencias',
+            template: '<competencias></competencias>'
+        })
+        .state('coursesView.eval', {
+            url: '/evaluaciones',
+            template: '<evaluaciones></evaluaciones>'
+        })
+        .state('coursesView.inte', {
+            url: '/interacciones',
+            template: '<interacciones></interacciones>'
+        })
+        .state('coursesView.nivl', {
+            url: '/niveles',
+            template: '<niveles></niveles>'
+        })
+        .state('coursesView.refs', {
+            url: '/referencias',
+            template: '<referencias></referencias>'
+        });
 });

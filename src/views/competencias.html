@@ -1,9 +1,20 @@
 <div class="col-lg-10">
+    <script type="text/ng-template" id="competenceTree">
+        <div class="competence-tree" style="font-size: 105%">
+            <input id="{{competence.id}}" type="text" ng-show="competence.edit" ng-keydown="change($event, competence)" ng-blur="competence.edit=false" ng-model="competence.description" />
+            <span ng-hide="competence.edit" ng-click="edit($event, competence)">{{ competence.description}}</span>
+        </div>
+        <ol ng-if="competence.children">
+            <li ng-repeat="competence in competence.children" ng-include="'competenceTree'"></li>
+        </ol>
+    </script>
   <div class="panel panel-default">
     <div class="panel-body">
       <h2>Competencias</h2>
       <hr>
-      <p>Competencias</p>
+        <ol>
+            <li ng-repeat="competence in competence.children" ng-include="'competenceTree'"></li>
+        </ol>
     </div>
   </div>
 </div>

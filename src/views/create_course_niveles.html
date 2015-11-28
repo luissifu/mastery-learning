@@ -1,59 +1,41 @@
 <div class="container">
+    <script type="text/ng-template" id="competenceTree">
+        <div class="competence-tree" style="font-size: 105%">
+            <input type="checkbox" />
+            <span ng-hide="competence.edit">{{ competence.description}}</span>
+        </div>
+        <ol ng-if="competence.children">
+            <li ng-repeat="competence in competence.children" ng-include="'competenceTree'"></li>
+        </ol>
+    </script>
+    <popup></popup>
 
-  <popup></popup>
-
-  <div class="row">
-    <div class="col-lg-12">
-      <h2>Paso 3 - Niveles</h2>
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Paso 3 - Niveles</h2>
+        </div>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          Nivel #1
-          <button type="button" class="close">×</button>
-        </div>
-        <div class="panel-body">
-          <ol>
-            <li>Competencias</li>
-            <li>Competencias</li>
-            <li>Competencias</li>
-          </ol>
-          <div>
-            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalComp"><i class="fa fa-tasks"></i> Cambiar Competencias</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          Nuevo Nivel
-          <button type="button" class="close">×</button>
-        </div>
-        <div class="panel-body">
-          <form action="create_course_niveles.html" method="post">
-            <div class="form-group">
-              <div class="form-group">
-                <label class="control-label" for="level_name">Nombre</label>
-                <input type="text" class="form-control" id="level_name" placeholder="Nombre">
-              </div>
-              <div>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalComp"><i class="fa fa-tasks"></i> Seleccionar Competencias</a>
-              </div>
+    <div ng-repeat="level in levels">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <input type="text" ng-show="level.edit" ng-keydown="change($event, level)" ng-blur="level.edit=false" ng-model="level.description"/>
+                        <span ng-hide="level.edit" ng-click="edit($event, level)">{{ level.description}}</span>
+                        <button type="button" class="close">×</button>
+                    </div>
+                    <ol>
+                        <li ng-repeat="competence in competence.children" ng-include="'competenceTree'"></li>
+                    </ol>
+                </div>
             </div>
-          </form>
         </div>
-      </div>
-
     </div>
-  </div>
 
   <div class="row">
     <div class="col-lg-4 col-lg-offset-4">
-      <a href="#" class="btn btn-success btn-block"><i class="fa fa-plus"></i> Agregar Nivel</a>
-      <a ui-sref="courses_new_refs" class="btn btn-primary btn-block">Continuar</a>
+        <a class="btn btn-success btn-block" ng-click="newLevel($event)"><i class="fa fa-plus"></i> Agregar Nivel</a>
+      <a ui-sref="coursesNewRefs" class="btn btn-primary btn-block">Continuar</a>
     </div>
   </div>
 

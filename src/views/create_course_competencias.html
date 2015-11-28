@@ -8,50 +8,29 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="panel panel-default">
-        <div class="panel-heading">
-          Competencia #1
-          <button type="button" class="close">×</button>
-        </div>
-        <div class="panel-body">
-          <ol>
-            <li>Subcompetencia</li>
-            <li>Subcompetencia</li>
-            <li>Subcompetencia</li>
-          </ol>
-        </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          Nueva Competencia
-          <button type="button" class="close">×</button>
-        </div>
-        <div class="panel-body">
-          <form action="create_course_niveles.html" method="post">
-            <div class="form-group">
-              <div class="form-group">
-                <label class="control-label" for="comp_name">Competencia</label>
-                <input type="text" class="form-control" id="comp_name" placeholder="Competencia">
-              </div>
-              <div class="form-group col-sm-offset-1">
-                <label class="control-label" for="subcomp_name">Subcompetencia</label>
-                <input type="text" class="form-control" id="subcomp_name" placeholder="Subcompetencia">
-              </div>
-              <div class="col-sm-offset-1">
-                <a href="#" class="btn btn-success"><i class="fa fa-plus"></i> Agregar Subcompetencia</a>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-
+          <div class="panel-body">
+              <script type="text/ng-template" id="competenceTree">
+                  <div class="competence-tree" style="font-size: 105%">
+                      <input id="{{competence.id}}" type="text" ng-show="competence.edit" ng-keydown="change($event, competence)" ng-blur="competence.edit=false" ng-model="competence.description" />
+                      <span ng-hide="competence.edit" ng-click="edit($event, competence)">{{ competence.description}}</span>
+                      <button type="button" class="close">×</button>
+                  </div>
+                  <ol ng-if="competence.children">
+                      <li ng-repeat="competence in competence.children" ng-include="'competenceTree'"></li>
+                  </ol>
+              </script>
+              <ol>
+                  <li ng-repeat="competence in competence.children" ng-include="'competenceTree'"></li>
+              </ol>
+          </div>
+     </div>
     </div>
   </div>
 
   <div class="row">
     <div class="col-lg-4 col-lg-offset-4">
-      <a href="#" class="btn btn-success btn-block"><i class="fa fa-plus"></i> Agregar Competencia</a>
-      <a ui-sref="courses_new_nivl" class="btn btn-primary btn-block">Continuar</a>
+      <a class="btn btn-success btn-block" ng-click="newCompetence($event)"><i class="fa fa-plus"></i> Agregar Competencia</a>
+      <a ui-sref="coursesNewNivl" class="btn btn-primary btn-block">Continuar</a>
     </div>
   </div>
 

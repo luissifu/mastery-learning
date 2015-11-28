@@ -4,21 +4,13 @@
     <div class="col-lg-10">
       <div class="panel panel-default">
         <div class="panel-body">
-          <h2>Nombre del curso</h2>
+          <h2>{{course.name}}</h2>
           <hr>
-          <p>Descripcion del curso</p>
-          <h4>Temario</h4>
-          <ul>
-            <li>Tema 1</li>
-            <li>Tema 2</li>
-            <li>Tema 3</li>
-            <li>Tema 4</li>
-            <li>Tema 5</li>
-          </ul>
+          <p>{{course.description}}</p>
           <br />
           <div class="pull-right">
-            <a ui-sref="courses_student" class="btn btn-default"><i class="fa fa-arrow-left"></i> Regresar</a>
-            <a ui-sref="courses_view" class="btn btn-success"><i class="fa fa-edit"></i> Inscribir</a>
+            <a class="btn btn-default back-button"><i class="fa fa-arrow-left"></i> Regresar</a>
+            <a ui-sref="coursesView({course: '{{course}}'})" class="btn btn-success"><i class="fa fa-edit"></i> Inscribir</a>
           </div>
         </div>
       </div>

@@ -3,7 +3,18 @@
     <div class="panel-body">
       <h2>Niveles</h2>
       <hr>
-      <p>Niveles</p>
+        <div ng-repeat="level in levels">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <input type="text" ng-show="level.edit" ng-keydown="change($event, level)" ng-blur="level.edit=false" ng-model="level.description" />
+                            <span ng-hide="level.edit" ng-click="edit($event, level)">{{ level.description}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
   </div>
 </div>
