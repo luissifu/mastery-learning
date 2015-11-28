@@ -5,7 +5,7 @@
         description: string;
         editName: boolean;
         editDescription: boolean;
-        constructor(id: number, name: string, description: string, editName=false, editDescription=false) {
+        constructor(id: number, name: string, description: string, editName = false, editDescription = false) {
             this.id = id;
             this.name = name;
             this.description = description;

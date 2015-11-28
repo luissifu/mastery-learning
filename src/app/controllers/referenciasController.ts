@@ -10,9 +10,14 @@ module ML.Controllers {
 
         constructor($scope: ReferenciasControllerScope) {
             $scope.references = [];
-            $scope.references.push(new Models.Reference(5, "Google", "http://www.google.com"));
-            $scope.references.push(new Models.Reference(6, "Facebook", "http://www.facebook.com"));
-            $scope.references.push(new Models.Reference(7, "Wikipedia - Miller Rabin", "https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test"));
+            $scope.references.push(new Models.Reference(5, 'Google', 'http://www.google.com'));
+            $scope.references.push(new Models.Reference(6, 'Facebook', 'http://www.facebook.com'));
+            $scope.references.push(
+                new Models.Reference(
+                    7,
+                    'Wikipedia - Miller Rabin', 'https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test'
+                )
+            );
             this.scope = $scope;
         }
     }

@@ -5,7 +5,7 @@
 
 /* *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+Licensed under the Apache License, Version 2.0 (the 'License'); you may not use
 this file except in compliance with the License. You may obtain a copy of the
 License at http://www.apache.org/licenses/LICENSE-2.0
 
@@ -28,7 +28,7 @@ interface JQueryAjaxSettings {
      */
     accepts?: any;
     /**
-     * By default, all requests are sent asynchronously (i.e. this is set to true by default). If you need synchronous requests, set this option to false. Cross-domain requests and dataType: "jsonp" requests do not support synchronous operation. Note that synchronous requests may temporarily lock the browser, disabling any actions while the request is active. As of jQuery 1.8, the use of async: false with jqXHR ($.Deferred) is deprecated; you must use the success/error/complete callback options instead of the corresponding methods of the jqXHR object such as jqXHR.done() or the deprecated jqXHR.success().
+     * By default, all requests are sent asynchronously (i.e. this is set to true by default). If you need synchronous requests, set this option to false. Cross-domain requests and dataType: 'jsonp' requests do not support synchronous operation. Note that synchronous requests may temporarily lock the browser, disabling any actions while the request is active. As of jQuery 1.8, the use of async: false with jqXHR ($.Deferred) is deprecated; you must use the success/error/complete callback options instead of the corresponding methods of the jqXHR object such as jqXHR.done() or the deprecated jqXHR.success().
      */
     async?: boolean;
     /**
@@ -36,21 +36,21 @@ interface JQueryAjaxSettings {
      */
     beforeSend? (jqXHR: JQueryXHR, settings: JQueryAjaxSettings): any;
     /**
-     * If set to false, it will force requested pages not to be cached by the browser. Note: Setting cache to false will only work correctly with HEAD and GET requests. It works by appending "_={timestamp}" to the GET parameters. The parameter is not needed for other types of requests, except in IE8 when a POST is made to a URL that has already been requested by a GET.
+     * If set to false, it will force requested pages not to be cached by the browser. Note: Setting cache to false will only work correctly with HEAD and GET requests. It works by appending '_={timestamp}' to the GET parameters. The parameter is not needed for other types of requests, except in IE8 when a POST is made to a URL that has already been requested by a GET.
      */
     cache?: boolean;
     /**
-     * A function to be called when the request finishes (after success and error callbacks are executed). The function gets passed two arguments: The jqXHR (in jQuery 1.4.x, XMLHTTPRequest) object and a string categorizing the status of the request ("success", "notmodified", "error", "timeout", "abort", or "parsererror"). As of jQuery 1.5, the complete setting can accept an array of functions. Each function will be called in turn. This is an Ajax Event.
+     * A function to be called when the request finishes (after success and error callbacks are executed). The function gets passed two arguments: The jqXHR (in jQuery 1.4.x, XMLHTTPRequest) object and a string categorizing the status of the request ('success', 'notmodified', 'error', 'timeout', 'abort', or 'parsererror'). As of jQuery 1.5, the complete setting can accept an array of functions. Each function will be called in turn. This is an Ajax Event.
      */
     complete? (jqXHR: JQueryXHR, textStatus: string): any;
     /**
      * An object of string/regular-expression pairs that determine how jQuery will parse the response, given its content type. (version added: 1.5)
      */
     contents?: { [key: string]: any; };
-    //According to jQuery.ajax source code, ajax's option actually allows contentType to set to "false"
+    //According to jQuery.ajax source code, ajax's option actually allows contentType to set to 'false'
     // https://github.com/borisyankov/DefinitelyTyped/issues/742
     /**
-     * When sending data to the server, use this content type. Default is "application/x-www-form-urlencoded; charset=UTF-8", which is fine for most cases. If you explicitly pass in a content-type to $.ajax(), then it is always sent to the server (even if no data is sent). The W3C XMLHttpRequest specification dictates that the charset is always UTF-8; specifying another charset will not force the browser to change the encoding.
+     * When sending data to the server, use this content type. Default is 'application/x-www-form-urlencoded; charset=UTF-8', which is fine for most cases. If you explicitly pass in a content-type to $.ajax(), then it is always sent to the server (even if no data is sent). The W3C XMLHttpRequest specification dictates that the charset is always UTF-8; specifying another charset will not force the browser to change the encoding.
      */
     contentType?: any;
     /**
@@ -78,7 +78,7 @@ interface JQueryAjaxSettings {
      */
     dataType?: string;
     /**
-     * A function to be called if the request fails. The function receives three arguments: The jqXHR (in jQuery 1.4.x, XMLHttpRequest) object, a string describing the type of error that occurred and an optional exception object, if one occurred. Possible values for the second argument (besides null) are "timeout", "error", "abort", and "parsererror". When an HTTP error occurs, errorThrown receives the textual portion of the HTTP status, such as "Not Found" or "Internal Server Error." As of jQuery 1.5, the error setting can accept an array of functions. Each function will be called in turn. Note: This handler is not called for cross-domain script and cross-domain JSONP requests. This is an Ajax Event.
+     * A function to be called if the request fails. The function receives three arguments: The jqXHR (in jQuery 1.4.x, XMLHttpRequest) object, a string describing the type of error that occurred and an optional exception object, if one occurred. Possible values for the second argument (besides null) are 'timeout', 'error', 'abort', and 'parsererror'. When an HTTP error occurs, errorThrown receives the textual portion of the HTTP status, such as 'Not Found' or 'Internal Server Error.' As of jQuery 1.5, the error setting can accept an array of functions. Each function will be called in turn. Note: This handler is not called for cross-domain script and cross-domain JSONP requests. This is an Ajax Event.
      */
     error? (jqXHR: JQueryXHR, textStatus: string, errorThrown: string): any;
     /**
@@ -94,11 +94,11 @@ interface JQueryAjaxSettings {
      */
     ifModified?: boolean;
     /**
-     * Allow the current environment to be recognized as "local," (e.g. the filesystem), even if jQuery does not recognize it as such by default. The following protocols are currently recognized as local: file, *-extension, and widget. If the isLocal setting needs modification, it is recommended to do so once in the $.ajaxSetup() method. (version added: 1.5.1)
+     * Allow the current environment to be recognized as 'local,' (e.g. the filesystem), even if jQuery does not recognize it as such by default. The following protocols are currently recognized as local: file, *-extension, and widget. If the isLocal setting needs modification, it is recommended to do so once in the $.ajaxSetup() method. (version added: 1.5.1)
      */
     isLocal?: boolean;
     /**
-     * Override the callback function name in a jsonp request. This value will be used instead of 'callback' in the 'callback=?' part of the query string in the url. So {jsonp:'onJSONPLoad'} would result in 'onJSONPLoad=?' passed to the server. As of jQuery 1.5, setting the jsonp option to false prevents jQuery from adding the "?callback" string to the URL or attempting to use "=?" for transformation. In this case, you should also explicitly set the jsonpCallback setting. For example, { jsonp: false, jsonpCallback: "callbackName" }
+     * Override the callback function name in a jsonp request. This value will be used instead of 'callback' in the 'callback=?' part of the query string in the url. So {jsonp:'onJSONPLoad'} would result in 'onJSONPLoad=?' passed to the server. As of jQuery 1.5, setting the jsonp option to false prevents jQuery from adding the '?callback' string to the URL or attempting to use '=?' for transformation. In this case, you should also explicitly set the jsonpCallback setting. For example, { jsonp: false, jsonpCallback: 'callbackName' }
      */
     jsonp?: any;
     /**
@@ -106,7 +106,7 @@ interface JQueryAjaxSettings {
      */
     jsonpCallback?: any;
     /**
-     * The HTTP method to use for the request (e.g. "POST", "GET", "PUT"). (version added: 1.9.0)
+     * The HTTP method to use for the request (e.g. 'POST', 'GET', 'PUT'). (version added: 1.9.0)
      */
     method?: string;
     /**
@@ -118,11 +118,11 @@ interface JQueryAjaxSettings {
      */
     password?: string;
     /**
-     * By default, data passed in to the data option as an object (technically, anything other than a string) will be processed and transformed into a query string, fitting to the default content-type "application/x-www-form-urlencoded". If you want to send a DOMDocument, or other non-processed data, set this option to false.
+     * By default, data passed in to the data option as an object (technically, anything other than a string) will be processed and transformed into a query string, fitting to the default content-type 'application/x-www-form-urlencoded'. If you want to send a DOMDocument, or other non-processed data, set this option to false.
      */
     processData?: boolean;
     /**
-     * Only applies when the "script" transport is used (e.g., cross-domain requests with "jsonp" or "script" dataType and "GET" type). Sets the charset attribute on the script tag used in the request. Used when the character set on the local page is not the same as the one on the remote script.
+     * Only applies when the 'script' transport is used (e.g., cross-domain requests with 'jsonp' or 'script' dataType and 'GET' type). Sets the charset attribute on the script tag used in the request. Used when the character set on the local page is not the same as the one on the remote script.
      */
     scriptCharset?: string;
     /**
@@ -142,7 +142,7 @@ interface JQueryAjaxSettings {
      */
     traditional?: boolean;
     /**
-     * The type of request to make ("POST" or "GET"), default is "GET". Note: Other HTTP request methods, such as PUT and DELETE, can also be used here, but they are not supported by all browsers.
+     * The type of request to make ('POST' or 'GET'), default is 'GET'. Note: Other HTTP request methods, such as PUT and DELETE, can also be used here, but they are not supported by all browsers.
      */
     type?: string;
     /**
@@ -174,7 +174,7 @@ interface JQueryXHR extends XMLHttpRequest, JQueryPromise<any> {
     /**
      * Cancel the request. 
      *
-     * @param statusText A string passed as the textStatus parameter for the done callback. Default value: "canceled"
+     * @param statusText A string passed as the textStatus parameter for the done callback. Default value: 'canceled'
      */
     abort(statusText?: string): void;
     /**
@@ -528,7 +528,7 @@ interface JQueryParam {
      * Create a serialized representation of an array or object, suitable for use in a URL query string or Ajax request.
      * 
      * @param obj An array or object to serialize.
-     * @param traditional A Boolean indicating whether to perform a traditional "shallow" serialization.
+     * @param traditional A Boolean indicating whether to perform a traditional 'shallow' serialization.
      */
     (obj: any, traditional: boolean): string;
 }
@@ -598,7 +598,7 @@ interface JQueryAnimationOptions {
      */
     always?: (animation: JQueryPromise<any>, jumpedToEnd: boolean) => any; 
     /**
-     * A Boolean indicating whether to place the animation in the effects queue. If false, the animation will begin immediately. As of jQuery 1.7, the queue option can also accept a string, in which case the animation is added to the queue represented by that string. When a custom queue name is used the animation does not automatically start; you must call .dequeue("queuename") to start it.
+     * A Boolean indicating whether to place the animation in the effects queue. If false, the animation will begin immediately. As of jQuery 1.7, the queue option can also accept a string, in which case the animation is added to the queue represented by that string. When a custom queue name is used the animation does not automatically start; you must call .dequeue('queuename') to start it.
      */
     queue?: any; 
     /**
@@ -998,7 +998,7 @@ interface JQueryStatic {
      *
      * @param array The array to search through.
      * @param func The function to process each item against. The first argument to the function is the item, and the second argument is the index. The function should return a Boolean value.  this will be the global window object.
-     * @param invert If "invert" is false, or not provided, then the function returns an array consisting of all elements for which "callback" returns true. If "invert" is true, then the function returns an array consisting of all elements for which "callback" returns false.
+     * @param invert If 'invert' is false, or not provided, then the function returns an array consisting of all elements for which 'callback' returns true. If 'invert' is true, then the function returns an array consisting of all elements for which 'callback' returns false.
      */
     grep<T>(array: T[], func: (elementOfArray: T, indexInArray: number) => boolean, invert?: boolean): T[];
 
@@ -1036,7 +1036,7 @@ interface JQueryStatic {
      */
     isNumeric(value: any): boolean;
     /**
-     * Check to see if an object is a plain object (created using "{}" or "new Object").
+     * Check to see if an object is a plain object (created using '{}' or 'new Object').
      *
      * @param obj The object that will be checked to see if it's a plain object.
      */
@@ -1460,7 +1460,7 @@ interface JQuery {
     offset(func: (index: number, coords: JQueryCoordinates) => JQueryCoordinates): JQuery;
 
     /**
-     * Get the current computed height for the first element in the set of matched elements, including padding, border, and optionally margin. Returns an integer (without "px") representation of the value or null if called on an empty set of elements.
+     * Get the current computed height for the first element in the set of matched elements, including padding, border, and optionally margin. Returns an integer (without 'px') representation of the value or null if called on an empty set of elements.
      *
      * @param includeMargin A Boolean indicating whether to include the element's margin in the calculation.
      */
@@ -1875,7 +1875,7 @@ interface JQuery {
     /**
      * Attach a handler to an event for the elements.
      * 
-     * @param eventType A string containing one or more DOM event types, such as "click" or "submit," or custom event names.
+     * @param eventType A string containing one or more DOM event types, such as 'click' or 'submit,' or custom event names.
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute each time the event is triggered.
      */
@@ -1883,14 +1883,14 @@ interface JQuery {
     /**
      * Attach a handler to an event for the elements.
      * 
-     * @param eventType A string containing one or more DOM event types, such as "click" or "submit," or custom event names.
+     * @param eventType A string containing one or more DOM event types, such as 'click' or 'submit,' or custom event names.
      * @param handler A function to execute each time the event is triggered.
      */
     bind(eventType: string, handler: (eventObject: JQueryEventObject) => any): JQuery;
     /**
      * Attach a handler to an event for the elements.
      * 
-     * @param eventType A string containing one or more DOM event types, such as "click" or "submit," or custom event names.
+     * @param eventType A string containing one or more DOM event types, such as 'click' or 'submit,' or custom event names.
      * @param eventData An object containing data that will be passed to the event handler.
      * @param preventBubble Setting the third argument to false will attach a function that prevents the default action from occurring and stops the event from bubbling. The default is true.
      */
@@ -1898,7 +1898,7 @@ interface JQuery {
     /**
      * Attach a handler to an event for the elements.
      * 
-     * @param eventType A string containing one or more DOM event types, such as "click" or "submit," or custom event names.
+     * @param eventType A string containing one or more DOM event types, such as 'click' or 'submit,' or custom event names.
      * @param preventBubble Setting the third argument to false will attach a function that prevents the default action from occurring and stops the event from bubbling. The default is true.
      */
     bind(eventType: string, preventBubble: boolean): JQuery;
@@ -1910,17 +1910,17 @@ interface JQuery {
     bind(events: any): JQuery;
 
     /**
-     * Trigger the "blur" event on an element
+     * Trigger the 'blur' event on an element
      */
     blur(): JQuery;
     /**
-     * Bind an event handler to the "blur" JavaScript event
+     * Bind an event handler to the 'blur' JavaScript event
      *
      * @param handler A function to execute each time the event is triggered.
      */
     blur(handler: (eventObject: JQueryEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "blur" JavaScript event
+     * Bind an event handler to the 'blur' JavaScript event
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute each time the event is triggered.
@@ -1928,17 +1928,17 @@ interface JQuery {
     blur(eventData?: any, handler?: (eventObject: JQueryEventObject) => any): JQuery;
 
     /**
-     * Trigger the "change" event on an element.
+     * Trigger the 'change' event on an element.
      */
     change(): JQuery;
     /**
-     * Bind an event handler to the "change" JavaScript event
+     * Bind an event handler to the 'change' JavaScript event
      *
      * @param handler A function to execute each time the event is triggered.
      */
     change(handler: (eventObject: JQueryEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "change" JavaScript event
+     * Bind an event handler to the 'change' JavaScript event
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute each time the event is triggered.
@@ -1946,17 +1946,17 @@ interface JQuery {
     change(eventData?: any, handler?: (eventObject: JQueryEventObject) => any): JQuery;
 
     /**
-     * Trigger the "click" event on an element.
+     * Trigger the 'click' event on an element.
      */
     click(): JQuery;
     /**
-     * Bind an event handler to the "click" JavaScript event
+     * Bind an event handler to the 'click' JavaScript event
      *
      * @param eventData An object containing data that will be passed to the event handler.
      */
     click(handler: (eventObject: JQueryEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "click" JavaScript event
+     * Bind an event handler to the 'click' JavaScript event
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute each time the event is triggered.
@@ -1964,17 +1964,17 @@ interface JQuery {
     click(eventData?: any, handler?: (eventObject: JQueryEventObject) => any): JQuery;
 
     /**
-     * Trigger the "dblclick" event on an element.
+     * Trigger the 'dblclick' event on an element.
      */
     dblclick(): JQuery;
     /**
-     * Bind an event handler to the "dblclick" JavaScript event
+     * Bind an event handler to the 'dblclick' JavaScript event
      *
      * @param handler A function to execute each time the event is triggered.
      */
     dblclick(handler: (eventObject: JQueryEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "dblclick" JavaScript event
+     * Bind an event handler to the 'dblclick' JavaScript event
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute each time the event is triggered.
@@ -1985,17 +1985,17 @@ interface JQuery {
     delegate(selector: any, eventType: string, eventData: any, handler: (eventObject: JQueryEventObject) => any): JQuery;
 
     /**
-     * Trigger the "focus" event on an element.
+     * Trigger the 'focus' event on an element.
      */
     focus(): JQuery;
     /**
-     * Bind an event handler to the "focus" JavaScript event
+     * Bind an event handler to the 'focus' JavaScript event
      *
      * @param handler A function to execute each time the event is triggered.
      */
     focus(handler: (eventObject: JQueryEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "focus" JavaScript event
+     * Bind an event handler to the 'focus' JavaScript event
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute each time the event is triggered.
@@ -2003,17 +2003,17 @@ interface JQuery {
     focus(eventData?: any, handler?: (eventObject: JQueryEventObject) => any): JQuery;
 
     /**
-     * Trigger the "focusin" event on an element.
+     * Trigger the 'focusin' event on an element.
      */
     focusin(): JQuery;
     /**
-     * Bind an event handler to the "focusin" JavaScript event
+     * Bind an event handler to the 'focusin' JavaScript event
      *
      * @param handler A function to execute each time the event is triggered.
      */
     focusin(handler: (eventObject: JQueryEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "focusin" JavaScript event
+     * Bind an event handler to the 'focusin' JavaScript event
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute each time the event is triggered.
@@ -2021,17 +2021,17 @@ interface JQuery {
     focusin(eventData: Object, handler: (eventObject: JQueryEventObject) => any): JQuery;
 
     /**
-     * Trigger the "focusout" event on an element.
+     * Trigger the 'focusout' event on an element.
      */
     focusout(): JQuery;
     /**
-     * Bind an event handler to the "focusout" JavaScript event
+     * Bind an event handler to the 'focusout' JavaScript event
      *
      * @param handler A function to execute each time the event is triggered.
      */
     focusout(handler: (eventObject: JQueryEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "focusout" JavaScript event
+     * Bind an event handler to the 'focusout' JavaScript event
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute each time the event is triggered.
@@ -2053,17 +2053,17 @@ interface JQuery {
     hover(handlerInOut: (eventObject: JQueryEventObject) => any): JQuery;
 
     /**
-     * Trigger the "keydown" event on an element.
+     * Trigger the 'keydown' event on an element.
      */
     keydown(): JQuery;
     /**
-     * Bind an event handler to the "keydown" JavaScript event
+     * Bind an event handler to the 'keydown' JavaScript event
      *
      * @param handler A function to execute each time the event is triggered.
      */
     keydown(handler: (eventObject: JQueryKeyEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "keydown" JavaScript event
+     * Bind an event handler to the 'keydown' JavaScript event
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute each time the event is triggered.
@@ -2071,17 +2071,17 @@ interface JQuery {
     keydown(eventData?: any, handler?: (eventObject: JQueryKeyEventObject) => any): JQuery;
 
     /**
-     * Trigger the "keypress" event on an element.
+     * Trigger the 'keypress' event on an element.
      */
     keypress(): JQuery;
     /**
-     * Bind an event handler to the "keypress" JavaScript event
+     * Bind an event handler to the 'keypress' JavaScript event
      *
      * @param handler A function to execute each time the event is triggered.
      */
     keypress(handler: (eventObject: JQueryKeyEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "keypress" JavaScript event
+     * Bind an event handler to the 'keypress' JavaScript event
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute each time the event is triggered.
@@ -2089,17 +2089,17 @@ interface JQuery {
     keypress(eventData?: any, handler?: (eventObject: JQueryKeyEventObject) => any): JQuery;
 
     /**
-     * Trigger the "keyup" event on an element.
+     * Trigger the 'keyup' event on an element.
      */
     keyup(): JQuery;
     /**
-     * Bind an event handler to the "keyup" JavaScript event
+     * Bind an event handler to the 'keyup' JavaScript event
      *
      * @param handler A function to execute each time the event is triggered.
      */
     keyup(handler: (eventObject: JQueryKeyEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "keyup" JavaScript event
+     * Bind an event handler to the 'keyup' JavaScript event
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute each time the event is triggered.
@@ -2107,13 +2107,13 @@ interface JQuery {
     keyup(eventData?: any, handler?: (eventObject: JQueryKeyEventObject) => any): JQuery;
 
     /**
-     * Bind an event handler to the "load" JavaScript event.
+     * Bind an event handler to the 'load' JavaScript event.
      *
      * @param handler A function to execute when the event is triggered.
      */
     load(handler: (eventObject: JQueryEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "load" JavaScript event.
+     * Bind an event handler to the 'load' JavaScript event.
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute when the event is triggered.
@@ -2121,17 +2121,17 @@ interface JQuery {
     load(eventData?: any, handler?: (eventObject: JQueryEventObject) => any): JQuery;
 
     /**
-     * Trigger the "mousedown" event on an element.
+     * Trigger the 'mousedown' event on an element.
      */
     mousedown(): JQuery;
     /**
-     * Bind an event handler to the "mousedown" JavaScript event.
+     * Bind an event handler to the 'mousedown' JavaScript event.
      *
      * @param handler A function to execute when the event is triggered.
      */
     mousedown(handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "mousedown" JavaScript event.
+     * Bind an event handler to the 'mousedown' JavaScript event.
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute when the event is triggered.
@@ -2139,7 +2139,7 @@ interface JQuery {
     mousedown(eventData: Object, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
 
     /**
-     * Trigger the "mouseenter" event on an element.
+     * Trigger the 'mouseenter' event on an element.
      */
     mouseenter(): JQuery;
     /**
@@ -2157,7 +2157,7 @@ interface JQuery {
     mouseenter(eventData: Object, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
 
     /**
-     * Trigger the "mouseleave" event on an element.
+     * Trigger the 'mouseleave' event on an element.
      */
     mouseleave(): JQuery;
     /**
@@ -2175,17 +2175,17 @@ interface JQuery {
     mouseleave(eventData: Object, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
 
     /**
-     * Trigger the "mousemove" event on an element.
+     * Trigger the 'mousemove' event on an element.
      */
     mousemove(): JQuery;
     /**
-     * Bind an event handler to the "mousemove" JavaScript event.
+     * Bind an event handler to the 'mousemove' JavaScript event.
      *
      * @param handler A function to execute when the event is triggered.
      */
     mousemove(handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "mousemove" JavaScript event.
+     * Bind an event handler to the 'mousemove' JavaScript event.
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute when the event is triggered.
@@ -2193,17 +2193,17 @@ interface JQuery {
     mousemove(eventData: Object, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
 
     /**
-     * Trigger the "mouseout" event on an element.
+     * Trigger the 'mouseout' event on an element.
      */
     mouseout(): JQuery;
     /**
-     * Bind an event handler to the "mouseout" JavaScript event.
+     * Bind an event handler to the 'mouseout' JavaScript event.
      *
      * @param handler A function to execute when the event is triggered.
      */
     mouseout(handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "mouseout" JavaScript event.
+     * Bind an event handler to the 'mouseout' JavaScript event.
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute when the event is triggered.
@@ -2211,17 +2211,17 @@ interface JQuery {
     mouseout(eventData: Object, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
 
     /**
-     * Trigger the "mouseover" event on an element.
+     * Trigger the 'mouseover' event on an element.
      */
     mouseover(): JQuery;
     /**
-     * Bind an event handler to the "mouseover" JavaScript event.
+     * Bind an event handler to the 'mouseover' JavaScript event.
      *
      * @param handler A function to execute when the event is triggered.
      */
     mouseover(handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "mouseover" JavaScript event.
+     * Bind an event handler to the 'mouseover' JavaScript event.
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute when the event is triggered.
@@ -2229,17 +2229,17 @@ interface JQuery {
     mouseover(eventData: Object, handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
 
     /**
-     * Trigger the "mouseup" event on an element.
+     * Trigger the 'mouseup' event on an element.
      */
     mouseup(): JQuery;
     /**
-     * Bind an event handler to the "mouseup" JavaScript event.
+     * Bind an event handler to the 'mouseup' JavaScript event.
      *
      * @param handler A function to execute when the event is triggered.
      */
     mouseup(handler: (eventObject: JQueryMouseEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "mouseup" JavaScript event.
+     * Bind an event handler to the 'mouseup' JavaScript event.
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute when the event is triggered.
@@ -2253,7 +2253,7 @@ interface JQuery {
     /**
      * Remove an event handler.
      *
-     * @param events One or more space-separated event types and optional namespaces, or just namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
+     * @param events One or more space-separated event types and optional namespaces, or just namespaces, such as 'click', 'keydown.myPlugin', or '.myPlugin'.
      * @param selector A selector which should match the one originally passed to .on() when attaching event handlers.
      * @param handler A handler function previously attached for the event(s), or the special value false.
      */
@@ -2261,7 +2261,7 @@ interface JQuery {
     /**
      * Remove an event handler.
      *
-     * @param events One or more space-separated event types and optional namespaces, or just namespaces, such as "click", "keydown.myPlugin", or ".myPlugin".
+     * @param events One or more space-separated event types and optional namespaces, or just namespaces, such as 'click', 'keydown.myPlugin', or '.myPlugin'.
      * @param handler A handler function previously attached for the event(s), or the special value false.
      */
     off(events: string, handler: (eventObject: JQueryEventObject) => any): JQuery;
@@ -2276,14 +2276,14 @@ interface JQuery {
     /**
      * Attach an event handler function for one or more events to the selected elements.
      *
-     * @param events One or more space-separated event types and optional namespaces, such as "click" or "keydown.myPlugin".
+     * @param events One or more space-separated event types and optional namespaces, such as 'click' or 'keydown.myPlugin'.
      * @param handler A function to execute when the event is triggered. The value false is also allowed as a shorthand for a function that simply does return false. Rest parameter args is for optional parameters passed to jQuery.trigger(). Note that the actual parameters on the event handler function must be marked as optional (? syntax).
      */
     on(events: string, handler: (eventObject: JQueryEventObject, ...args: any[]) => any): JQuery;
     /**
      * Attach an event handler function for one or more events to the selected elements.
      *
-     * @param events One or more space-separated event types and optional namespaces, such as "click" or "keydown.myPlugin".
+     * @param events One or more space-separated event types and optional namespaces, such as 'click' or 'keydown.myPlugin'.
      * @param data Data to be passed to the handler in event.data when an event is triggered.
      * @param handler A function to execute when the event is triggered. The value false is also allowed as a shorthand for a function that simply does return false.
     */
@@ -2291,7 +2291,7 @@ interface JQuery {
     /**
      * Attach an event handler function for one or more events to the selected elements.
      *
-     * @param events One or more space-separated event types and optional namespaces, such as "click" or "keydown.myPlugin".
+     * @param events One or more space-separated event types and optional namespaces, such as 'click' or 'keydown.myPlugin'.
      * @param selector A selector string to filter the descendants of the selected elements that trigger the event. If the selector is null or omitted, the event is always triggered when it reaches the selected element.
      * @param handler A function to execute when the event is triggered. The value false is also allowed as a shorthand for a function that simply does return false.
      */
@@ -2299,7 +2299,7 @@ interface JQuery {
     /**
      * Attach an event handler function for one or more events to the selected elements.
      *
-     * @param events One or more space-separated event types and optional namespaces, such as "click" or "keydown.myPlugin".
+     * @param events One or more space-separated event types and optional namespaces, such as 'click' or 'keydown.myPlugin'.
      * @param selector A selector string to filter the descendants of the selected elements that trigger the event. If the selector is null or omitted, the event is always triggered when it reaches the selected element.
      * @param data Data to be passed to the handler in event.data when an event is triggered.
      * @param handler A function to execute when the event is triggered. The value false is also allowed as a shorthand for a function that simply does return false.
@@ -2324,14 +2324,14 @@ interface JQuery {
     /**
      * Attach a handler to an event for the elements. The handler is executed at most once per element per event type.
      *
-     * @param events A string containing one or more JavaScript event types, such as "click" or "submit," or custom event names.
+     * @param events A string containing one or more JavaScript event types, such as 'click' or 'submit,' or custom event names.
      * @param handler A function to execute at the time the event is triggered.
      */
     one(events: string, handler: (eventObject: JQueryEventObject) => any): JQuery;
     /**
      * Attach a handler to an event for the elements. The handler is executed at most once per element per event type.
      *
-     * @param events A string containing one or more JavaScript event types, such as "click" or "submit," or custom event names.
+     * @param events A string containing one or more JavaScript event types, such as 'click' or 'submit,' or custom event names.
      * @param data An object containing data that will be passed to the event handler.
      * @param handler A function to execute at the time the event is triggered.
      */
@@ -2340,7 +2340,7 @@ interface JQuery {
     /**
      * Attach a handler to an event for the elements. The handler is executed at most once per element per event type.
      *
-     * @param events One or more space-separated event types and optional namespaces, such as "click" or "keydown.myPlugin".
+     * @param events One or more space-separated event types and optional namespaces, such as 'click' or 'keydown.myPlugin'.
      * @param selector A selector string to filter the descendants of the selected elements that trigger the event. If the selector is null or omitted, the event is always triggered when it reaches the selected element.
      * @param handler A function to execute when the event is triggered. The value false is also allowed as a shorthand for a function that simply does return false.
      */
@@ -2348,7 +2348,7 @@ interface JQuery {
     /**
      * Attach a handler to an event for the elements. The handler is executed at most once per element per event type.
      *
-     * @param events One or more space-separated event types and optional namespaces, such as "click" or "keydown.myPlugin".
+     * @param events One or more space-separated event types and optional namespaces, such as 'click' or 'keydown.myPlugin'.
      * @param selector A selector string to filter the descendants of the selected elements that trigger the event. If the selector is null or omitted, the event is always triggered when it reaches the selected element.
      * @param data Data to be passed to the handler in event.data when an event is triggered.
      * @param handler A function to execute when the event is triggered. The value false is also allowed as a shorthand for a function that simply does return false.
@@ -2381,17 +2381,17 @@ interface JQuery {
     ready(handler: (jQueryAlias?: JQueryStatic) => any): JQuery;
 
     /**
-     * Trigger the "resize" event on an element.
+     * Trigger the 'resize' event on an element.
      */
     resize(): JQuery;
     /**
-     * Bind an event handler to the "resize" JavaScript event.
+     * Bind an event handler to the 'resize' JavaScript event.
      *
      * @param handler A function to execute each time the event is triggered.
      */
     resize(handler: (eventObject: JQueryEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "resize" JavaScript event.
+     * Bind an event handler to the 'resize' JavaScript event.
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute each time the event is triggered.
@@ -2399,17 +2399,17 @@ interface JQuery {
     resize(eventData: Object, handler: (eventObject: JQueryEventObject) => any): JQuery;
 
     /**
-     * Trigger the "scroll" event on an element.
+     * Trigger the 'scroll' event on an element.
      */
     scroll(): JQuery;
     /**
-     * Bind an event handler to the "scroll" JavaScript event.
+     * Bind an event handler to the 'scroll' JavaScript event.
      *
      * @param handler A function to execute each time the event is triggered.
      */
     scroll(handler: (eventObject: JQueryEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "scroll" JavaScript event.
+     * Bind an event handler to the 'scroll' JavaScript event.
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute each time the event is triggered.
@@ -2417,17 +2417,17 @@ interface JQuery {
     scroll(eventData: Object, handler: (eventObject: JQueryEventObject) => any): JQuery;
 
     /**
-     * Trigger the "select" event on an element.
+     * Trigger the 'select' event on an element.
      */
     select(): JQuery;
     /**
-     * Bind an event handler to the "select" JavaScript event.
+     * Bind an event handler to the 'select' JavaScript event.
      *
      * @param handler A function to execute each time the event is triggered.
      */
     select(handler: (eventObject: JQueryEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "select" JavaScript event.
+     * Bind an event handler to the 'select' JavaScript event.
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute each time the event is triggered.
@@ -2435,17 +2435,17 @@ interface JQuery {
     select(eventData: Object, handler: (eventObject: JQueryEventObject) => any): JQuery;
 
     /**
-     * Trigger the "submit" event on an element.
+     * Trigger the 'submit' event on an element.
      */
     submit(): JQuery;
     /**
-     * Bind an event handler to the "submit" JavaScript event
+     * Bind an event handler to the 'submit' JavaScript event
      *
      * @param handler A function to execute each time the event is triggered.
      */
     submit(handler: (eventObject: JQueryEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "submit" JavaScript event
+     * Bind an event handler to the 'submit' JavaScript event
      *
      * @param eventData An object containing data that will be passed to the event handler.
      * @param handler A function to execute each time the event is triggered.
@@ -2512,7 +2512,7 @@ interface JQuery {
      * Remove a handler from the event for all elements which match the current selector, based upon a specific set of root elements.
      * 
      * @param selector A selector which will be used to filter the event results.
-     * @param eventType A string containing a JavaScript event type, such as "click" or "keydown"
+     * @param eventType A string containing a JavaScript event type, such as 'click' or 'keydown'
      * @param handler A function to execute at the time the event is triggered.
      */
     undelegate(selector: string, eventType: string, handler?: (eventObject: JQueryEventObject) => any): JQuery;
@@ -2531,13 +2531,13 @@ interface JQuery {
     undelegate(namespace: string): JQuery;
 
     /**
-     * Bind an event handler to the "unload" JavaScript event. (DEPRECATED from v1.8)
+     * Bind an event handler to the 'unload' JavaScript event. (DEPRECATED from v1.8)
      * 
      * @param handler A function to execute when the event is triggered.
      */
     unload(handler: (eventObject: JQueryEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "unload" JavaScript event. (DEPRECATED from v1.8)
+     * Bind an event handler to the 'unload' JavaScript event. (DEPRECATED from v1.8)
      * 
      * @param eventData A plain object of data that will be passed to the event handler.
      * @param handler A function to execute when the event is triggered.
@@ -2552,13 +2552,13 @@ interface JQuery {
     jquery: string;
 
     /**
-     * Bind an event handler to the "error" JavaScript event. (DEPRECATED from v1.8)
+     * Bind an event handler to the 'error' JavaScript event. (DEPRECATED from v1.8)
      * 
      * @param handler A function to execute when the event is triggered.
      */
     error(handler: (eventObject: JQueryEventObject) => any): JQuery;
     /**
-     * Bind an event handler to the "error" JavaScript event. (DEPRECATED from v1.8)
+     * Bind an event handler to the 'error' JavaScript event. (DEPRECATED from v1.8)
      * 
      * @param eventData A plain object of data that will be passed to the event handler.
      * @param handler A function to execute when the event is triggered.
@@ -3183,7 +3183,7 @@ interface JQuery {
      */
     queue(queueName: string, callback: Function): JQuery;
 }
-declare module "jquery" {
+declare module 'jquery' {
     export = $;
 }
 declare var jQuery: JQueryStatic;

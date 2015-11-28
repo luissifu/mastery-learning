@@ -10,7 +10,7 @@
 
         constructor($scope: CourseControllerScope) {
             if (!$scope.course) {
-                $scope.course = new Models.Course(1, "Curso Prueba", "Curso creado como prueba");
+                $scope.course = new Models.Course(1, 'Curso Prueba', 'Curso creado como prueba');
             }
             this.scope = $scope;
         }

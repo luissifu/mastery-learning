@@ -5,7 +5,7 @@
         url: string;
         editName: boolean;
         editUrl: boolean;
-        constructor(id: number, name: string, url: string, editName=false, editUrl=false) {
+        constructor(id: number, name: string, url: string, editName = false, editUrl = false) {
             this.id = id;
             this.name = name;
             this.url = url;

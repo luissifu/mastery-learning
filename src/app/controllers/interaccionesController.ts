@@ -10,9 +10,9 @@ module ML.Controllers {
 
         constructor($scope: InteraccionesControllerScope) {
             $scope.interactions = [];
-            $scope.interactions.push(new Models.Interaction(5, "Individual", "El alumno trabaja y esudia por su cuenta."));
-            $scope.interactions.push(new Models.Interaction(6, "Pareja", "El primer alumno pregunta y el segundo responde."));
-            $scope.interactions.push(new Models.Interaction(7, "Equipos", "Se distribuye la tarea equitativamente."));
+            $scope.interactions.push(new Models.Interaction(5, 'Individual', 'El alumno trabaja y esudia por su cuenta.'));
+            $scope.interactions.push(new Models.Interaction(6, 'Pareja', 'El primer alumno pregunta y el segundo responde.'));
+            $scope.interactions.push(new Models.Interaction(7, 'Equipos', 'Se distribuye la tarea equitativamente.'));
             this.scope = $scope;
         }
     }

@@ -2,12 +2,12 @@ appModule.config(($stateProvider: ng.ui.IStateProvider, $urlRouterProvider: ng.u
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-    // default
+        // default
         .state('index', {
             url: '/',
             template: '<home></home>'
         })
-    // nodos
+        // nodos
         .state('home', {
             url: '/home',
             template: '<home></home>'
@@ -28,9 +28,9 @@ appModule.config(($stateProvider: ng.ui.IStateProvider, $urlRouterProvider: ng.u
             url: '/courses/detail/:course',
             templateProvider: ($stateParams) => {
                 return '<course-detail course=\'' + $stateParams.course + '\'></course-detail>';
-            },
+            }
         })
-    // crear curso
+        // crear curso
         .state('coursesNew', {
             url: '/courses/new',
             template: '<create-course></create-course>'
@@ -55,12 +55,12 @@ appModule.config(($stateProvider: ng.ui.IStateProvider, $urlRouterProvider: ng.u
             url: '/courses/new/referencias',
             template: '<create-course-referencias></create-course-referencias>'
         })
-    // ver curso
+        // ver curso
         .state('coursesView', {
             url: '/courses/view/:course',
             templateProvider: ($stateParams) => {
                 return '<course course=\'' + $stateParams.course + '\'></course>';
-            },
+            }
         })
         .state('coursesView.comp', {
             url: '/competencias',

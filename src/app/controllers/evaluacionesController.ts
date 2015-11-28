@@ -10,9 +10,9 @@ module ML.Controllers {
 
         constructor($scope: EvaluacionesControllerScope) {
             $scope.evaluations = [];
-            $scope.evaluations.push(new Models.Evaluation(5, "Primer examen parcial", "Mis Documentos"));
-            $scope.evaluations.push(new Models.Evaluation(6, "Segundo examen parcial", "Mis Documentos"));
-            $scope.evaluations.push(new Models.Evaluation(7, "Examen Final", "Mis Documentos"));
+            $scope.evaluations.push(new Models.Evaluation(5, 'Primer examen parcial', 'Mis Documentos'));
+            $scope.evaluations.push(new Models.Evaluation(6, 'Segundo examen parcial', 'Mis Documentos'));
+            $scope.evaluations.push(new Models.Evaluation(7, 'Examen Final', 'Mis Documentos'));
             this.scope = $scope;
         }
     }

@@ -10,9 +10,9 @@ module ML.Controllers {
 
         constructor($scope: NivelesControllerScope) {
             $scope.levels = [];
-            $scope.levels.push(new Models.Level(5, "Basico"));
-            $scope.levels.push(new Models.Level(6, "Intermedio"));
-            $scope.levels.push(new Models.Level(7, "Avanzado"));
+            $scope.levels.push(new Models.Level(5, 'Basico'));
+            $scope.levels.push(new Models.Level(6, 'Intermedio'));
+            $scope.levels.push(new Models.Level(7, 'Avanzado'));
             this.scope = $scope;
         }
     }

@@ -10,9 +10,8 @@
                 restrict: 'E',
                 templateUrl: 'views/course_detail.html',
                 replace: true,
-                scope: { //Ahora el scope tendra todas las propiedades que le enviamos :)
-                    // Es importante notar que si no ponemos scope tendra un shared scope con su padre (en vez de uno propio)
-                    course: "=",
+                scope: {
+                    course: '='
                 },
                 link: (scope: ng.IScope, element: ng.IAugmentedJQuery, attrs: ng.IAttributes) => {
                     element.find('.back-button').on('click', function () {

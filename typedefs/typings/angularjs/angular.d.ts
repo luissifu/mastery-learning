@@ -4,7 +4,7 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 
-/// <reference path="../jquery/jquery.d.ts" />
+/// <reference path='../jquery/jquery.d.ts' />
 
 declare var angular: angular.IAngularStatic;
 
@@ -79,7 +79,7 @@ declare module angular {
         /**
          * Wraps a raw DOM element or HTML string as a jQuery element.
          *
-         * If jQuery is available, angular.element is an alias for the jQuery function. If jQuery is not available, angular.element delegates to Angular's built-in subset of jQuery, called "jQuery lite" or "jqLite."
+         * If jQuery is available, angular.element is an alias for the jQuery function. If jQuery is not available, angular.element delegates to Angular's built-in subset of jQuery, called 'jQuery lite' or 'jqLite.'
          */
         element: IAugmentedJQueryStatic;
         equals(value1: any, value2: any): boolean;
@@ -349,7 +349,7 @@ declare module angular {
     interface IFormController {
 
         /**
-         * Indexer which should return ng.INgModelController for most properties but cannot because of "All named properties must be assignable to string indexer type" constraint - see https://github.com/Microsoft/TypeScript/issues/272
+         * Indexer which should return ng.INgModelController for most properties but cannot because of 'All named properties must be assignable to string indexer type' constraint - see https://github.com/Microsoft/TypeScript/issues/272
          */
         [name: string]: any;
 
@@ -1021,7 +1021,7 @@ declare module angular {
         /**
          * Creates a promise that is resolved as rejected with the specified reason. This api should be used to forward rejection in a chain of promises. If you are dealing with the last promise in a promise chain, you don't need to worry about it.
          *
-         * When comparing deferreds/promises to the familiar behavior of try/catch/throw, think of reject as the throw keyword in JavaScript. This also means that if you "catch" an error via a promise error callback and you want to forward the error to the promise derived from the current promise, you have to "rethrow" the error by returning a rejection constructed via reject.
+         * When comparing deferreds/promises to the familiar behavior of try/catch/throw, think of reject as the throw keyword in JavaScript. This also means that if you 'catch' an error via a promise error callback and you want to forward the error to the promise derived from the current promise, you have to 'rethrow' the error by returning a rejection constructed via reject.
          *
          * @param reason Constant, message, exception or an object representing the rejection reason.
          */
@@ -1213,7 +1213,7 @@ declare module angular {
         (clonedElement?: JQuery, scope?: IScope): any;
     }
 
-    // This corresponds to the "publicLinkFn" returned by $compile.
+    // This corresponds to the 'publicLinkFn' returned by $compile.
     interface ITemplateLinkingFunction {
         (scope: IScope, cloneAttachFn?: ICloneAttachFunction): IAugmentedJQuery;
     }
@@ -1438,7 +1438,7 @@ declare module angular {
         /**
          * Map of strings or functions which return strings representing HTTP headers to send to the server. If the
          * return value of a function is null, the header will not be sent.
-         * The key of the map is the request verb in lower case. The "common" key applies to all requests.
+         * The key of the map is the request verb in lower case. The 'common' key applies to all requests.
          * @see {@link https://docs.angularjs.org/api/ng/service/$http#setting-http-headers}
          */
         headers?: IHttpRequestConfigHeaders;
