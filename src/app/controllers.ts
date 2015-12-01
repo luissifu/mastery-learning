@@ -39,7 +39,7 @@ appModule.controller(
 );
 appModule.controller(
   'createCourseEvaluacionesController',
-  ['$scope', ($scope) => new ML.Controllers.CreateCourseEvaluacionesController($scope)]
+  ['$scope', 'Upload', ($scope, Upload) => new ML.Controllers.CreateCourseEvaluacionesController($scope, Upload)]
 );
 appModule.controller(
   'createCourseInteraccionesController',

@@ -1,3 +1,4 @@
+///<reference path="../../../typedefs/typings/ng-file-upload/ng-file-upload.d.ts" />
 ﻿module ML.Controllers {
     //Si quieres enviarle propiedades al scope definelas aqui, sino solo usa el tipo ng.IScope para el scope de tu controlador.
     export interface CreateCourseEvaluacionesControllerScope extends ng.IScope {
@@ -8,6 +9,8 @@
         editFile: ($event: Event, Evaluation: Models.Evaluation) => void;
         changeFile: ($event: KeyboardEvent, Evaluation: Models.Evaluation) => void;
         newEvaluation: ($event: Event, Evaluation: Models.Evaluation) => void;
+        submit: (evaluation: Models.Evaluation) => void;
+        upload: (file: File) => void;
     }
 
     export class CreateCourseEvaluacionesController {
@@ -15,7 +18,7 @@
 
         public scope: CreateCourseEvaluacionesControllerScope;
 
-        constructor($scope: CreateCourseEvaluacionesControllerScope) {
+        constructor($scope: CreateCourseEvaluacionesControllerScope, Upload: any) {
             var competence = $scope.competence = new Models.Competence(1, '', null, []);
             competence.children.push(new Models.Competence(1, 'Hablar fluido el aleman', competence, null));
             var testChildren: Models.Competence[] = [];
@@ -48,6 +51,16 @@
                 if ($event.keyCode === enterKey) {
                     evaluation.editFile = false;
                 }
+            };
+            $scope.upload = (file: File) => {
+                Upload.upload({
+                    file: file,
+                    url: 'url'
+                });
+            };
+            $scope.submit = () => {
+
+                // $scope.upload(evaluation.file);
             };
             this.scope = $scope;
         }

@@ -1,1 +1,4 @@
-var appModule = angular.module('masteryLearning', ['ui.router']);
+var appModule = angular.module('masteryLearning', [
+  'ui.router',
+  'ngFileUpload'
+]);

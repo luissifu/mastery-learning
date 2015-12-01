@@ -27,10 +27,20 @@
                     </div>
                     <div class="panel-body">
                         <p>
-                            <b>File Location:</b>
+                            <form>
+                              <b>Archivo:</b>
+                              <br />
+                              <span>{{evaluation.file}}</span>
+                              <button class="btn btn-primary" ngf-select ng-model="evaluation.file"
+                               ngf-pattern="'*'" ngf-max-size="20MB">
+                                <i class="fa fa-upload"></i> Seleccionar Archivo
+                              </button>
+                            </form>
+                            <!--
                             <input type="text" ng-show="evaluation.editFile" ng-keydown="changeFile($event, evaluation)" ng-blur="evaluation.editFile=false" ng-model="evaluation.file" />
                             <span ng-hide="evaluation.editFile" ng-click="editFile($event, evaluation)">{{ evaluation.file}}</span>
                             <span class="btn btn-primary"><i class="fa fa-upload"></i> Seleccionar Archivo</span>
+                            -->
                         </p>
                         <hr>
                         <ol>
@@ -45,7 +55,8 @@
   <div class="row">
     <div class="col-lg-4 col-lg-offset-4">
       <a class="btn btn-success btn-block" ng-click="newEvaluation($event)"><i class="fa fa-plus"></i> Agregar Evaluacion</a>
-      <a ui-sref="coursesView" class="btn btn-primary btn-block">Terminar</a>
+      <br />
+      <a ui-sref="coursesView" class="btn btn-primary btn-block" ng-click="submit()">Terminar</a>
     </div>
   </div>
 

@@ -13,7 +13,7 @@
                         </div>
                         <div class="panel-body">
                             <p>
-                                <b>File Location:</b>
+                                <b>Archivo:</b>
                                 <input type="text" ng-show="evaluation.editFile" ng-keydown="changeFile($event, evaluation)" ng-blur="evaluation.editFile=false" ng-model="evaluation.file" />
                                 <span ng-hide="evaluation.editFile" ng-click="editFile($event, evaluation)">{{ evaluation.file}}</span>
                             </p>
